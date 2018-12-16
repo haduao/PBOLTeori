@@ -1,0 +1,47 @@
+package JavaServer;
+
+import java.io.*;
+import java.net.*;
+
+/**
+ *
+ * @author haduao
+ */
+
+public class JavaServer {
+
+    public static void main(String[] args) throws IOException{
+      ServerSocket server = null;
+        Socket client;
+        try{
+            server = new ServerSocket(1234);
+        }catch (IOException ie){
+            System.out.println("Ente Siapa gan?");
+                    System.exit(1);
+
+        } 
+        String temp;
+     while (true){
+         try{
+             client = server.accept();
+             OutputStream clientOut = client.getOutputStream();
+             PrintWriter pw = new PrintWriter(clientOut, true);
+             InputStream clientIn = client.getInputStream();
+              BufferedReader br = new BufferedReader( new InputStreamReader(clientIn));
+               temp = br.readLine();
+               System.out.println(temp);
+               pw.println(temp);
+               br.close();
+               pw.close();
+               clientIn.close();
+               clientOut.close();
+               
+                 }catch (IOException ie){
+                     ie.printStackTrace();
+            
+         }
+            
+        }
+    }
+    
+}
