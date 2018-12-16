@@ -6,4 +6,4 @@ Bima Aditama		    5160311047
 
 Hanif Huwaidi		    5160311063
 
-Copyright 2018
+^.^
